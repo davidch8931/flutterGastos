@@ -8,7 +8,7 @@ class KpiRepository {
     final result = await db.rawQuery('''
       SELECT IFNULL(SUM(CAST(monto AS REAL)), 0) total
       FROM transacciones
-      WHERE tipo = 'Ingreso'
+      WHERE tipo = 'ingreso'
     ''');
     return (result.first['total'] as num).toDouble();
   }
@@ -18,7 +18,7 @@ class KpiRepository {
     final result = await db.rawQuery('''
       SELECT IFNULL(SUM(CAST(monto AS REAL)), 0) total
       FROM transacciones
-      WHERE tipo = 'Gasto'
+      WHERE tipo = 'gasto'
     ''');
     return (result.first['total'] as num).toDouble();
   }
@@ -29,8 +29,8 @@ class KpiRepository {
       SELECT IFNULL(
         SUM(
           CASE 
-            WHEN tipo = 'INGRESO' THEN CAST(monto AS REAL)
-            WHEN tipo = 'EGRESO' THEN -CAST(monto AS REAL)
+            WHEN tipo = 'ingreso' THEN CAST(monto AS REAL)
+            WHEN tipo = 'gasto' THEN -CAST(monto AS REAL)
           END
         ), 0
       ) balance

@@ -86,25 +86,23 @@ class _ConfiguracionScreenState extends State<ConfiguracionScreen> {
                           },
                           icon: Icon(Icons.edit, color: Colors.amber),
                         ),
-                        IconButton(
-                          onPressed: () => eliminarConfiguracion(conf.id!),
-                          icon: Icon(Icons.delete, color: Colors.red),
-                        ),
                       ],
                     ),
                   ),
                 );
               },
             ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () async {
-          await Navigator.pushNamed(context, '/configuracion/form');
-          cargarConfiguracion();
-        },
-        child: Icon(Icons.add, color: Colors.white),
-        backgroundColor: Colors.black,
-        shape: CircleBorder(),
-      ),
+      floatingActionButton: configuraciones.isEmpty
+        ? FloatingActionButton(
+            onPressed: () async {
+              await Navigator.pushNamed(context, '/configuracion/form');
+              cargarConfiguracion();
+            },
+            child: Icon(Icons.add, color: Colors.white),
+            backgroundColor: Colors.black,
+            shape: CircleBorder(),
+          )
+        : null,
     );
   }
 }
