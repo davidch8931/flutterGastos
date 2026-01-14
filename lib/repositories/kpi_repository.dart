@@ -10,7 +10,7 @@ class KpiRepository {
       FROM transacciones
       WHERE tipo = 'INGRESO'
     ''');
-    return result.first['total'] as double;
+    return (result.first['total'] as num).toDouble();
   }
 
   Future<double> totalGastos() async {
@@ -20,7 +20,7 @@ class KpiRepository {
       FROM transacciones
       WHERE tipo = 'EGRESO'
     ''');
-    return result.first['total'] as double;
+    return (result.first['total'] as num).toDouble();
   }
 
   Future<double> balance() async {
@@ -36,6 +36,6 @@ class KpiRepository {
       ) balance
       FROM transacciones
     ''');
-    return result.first['balance'] as double;
+    return (result.first['balance'] as num).toDouble();
   }
 }
