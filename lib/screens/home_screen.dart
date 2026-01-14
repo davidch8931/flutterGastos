@@ -63,6 +63,25 @@ class HomeScreen extends StatelessWidget {
                   ),
                 ),
               ),
+
+              SizedBox(height: 20),
+              Container(
+                height: 50,
+                width: 150,
+                decoration: BoxDecoration(
+                  color: Colors.blue,
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                child: TextButton(
+                  onPressed: () {
+                    Navigator.pushNamed(context, '/kpi');
+                  },
+                  child: Text(
+                    'Reportes',
+                    style: TextStyle(fontSize: 15, color: Colors.white),
+                  ),
+                ),
+              ),
             ],
           ),
         ),

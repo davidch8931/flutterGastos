@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'screens/configuraciones/configuraciones_form_screen.dart';
 import 'screens/configuraciones/configuraciones_screen.dart';
 import 'screens/home_screen.dart';
+import 'screens/kpi/kpi_screen.dart';
 import 'screens/transacciones/transaccion_screen.dart';
 import 'screens/transacciones/transacciones_form_screen.dart';
 
@@ -26,7 +27,8 @@ class MyApp extends StatelessWidget {
         '/configuracion': (context) => ConfiguracionScreen(),
         '/configuracion/form': (context) => ConfiguracionFormScreen(),
 
-      }
-      );
+        '/kpi': (context) => KpiScreen(),
+      },
+    );
   }
 }
