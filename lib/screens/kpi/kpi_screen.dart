@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../../repositories/kpi_repository.dart';
+import 'ingresos_gastos_chart.dart';
 
 class KpiScreen extends StatefulWidget {
   const KpiScreen({super.key});
@@ -74,6 +75,10 @@ class _KpiScreenState extends State<KpiScreen> {
                     color: montoActual >= 0 ? Colors.teal : Colors.red,
                     icono: Icons.account_balance_wallet,
                   ),
+
+                  SizedBox(height: 20),
+
+                  IngresosGastosChart(ingresos: ingresos, gastos: gastos),
                 ],
               ),
             ),
