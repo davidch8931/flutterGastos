@@ -14,6 +14,9 @@ class _KpiScreenState extends State<KpiScreen> {
   double ingresos = 0;
   double gastos = 0;
   double balance = 0;
+  double montoInicial = 0;
+  double montoActual = 0;
+
   bool cargando = true;
 
   @override
@@ -28,6 +31,8 @@ class _KpiScreenState extends State<KpiScreen> {
     ingresos = await repo.totalIngresos();
     gastos = await repo.totalGastos();
     balance = await repo.balance();
+    montoInicial = await repo.montoInicial();
+    montoActual = await repo.montoActual();
 
     setState(() => cargando = false);
   }
@@ -61,6 +66,13 @@ class _KpiScreenState extends State<KpiScreen> {
                     valor: balance,
                     color: balance >= 0 ? Colors.blue : Colors.orange,
                     icono: Icons.account_balance,
+                  ),
+                  SizedBox(height: 15),
+                  _kpiCard(
+                    titulo: "Monto Actual Disponible",
+                    valor: montoActual,
+                    color: montoActual >= 0 ? Colors.teal : Colors.red,
+                    icono: Icons.account_balance_wallet,
                   ),
                 ],
               ),

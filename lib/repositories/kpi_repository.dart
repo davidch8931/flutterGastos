@@ -38,4 +38,20 @@ class KpiRepository {
     ''');
     return (result.first['balance'] as num).toDouble();
   }
+
+  Future<double> montoInicial() async {
+    final db = await database.db;
+    final result = await db.rawQuery('''
+      SELECT CAST(monto AS REAL) monto
+      FROM configuracion
+      LIMIT 1
+    ''');
+    return (result.first['monto'] as num).toDouble();
+  }
+
+  Future<double> montoActual() async {
+    final inicial = await montoInicial();
+    final bal = await balance();
+    return inicial + bal;
+  }
 }
