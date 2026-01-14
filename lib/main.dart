@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'screens/configuraciones/configuraciones_form_screen.dart';
+import 'screens/configuraciones/configuraciones_screen.dart';
 import 'screens/home_screen.dart';
 import 'screens/transacciones/transaccion_screen.dart';
 
@@ -18,6 +20,10 @@ class MyApp extends StatelessWidget {
       routes: {
         '/': (context) => HomeScreen(),
         '/transacciones/lista': (context) => ListaTransaccion(),
+
+        '/configuracion': (context) => ConfiguracionScreen(),
+        '/configuracion/form': (context) => ConfiguracionFormScreen(),
+
       }
       );
   }
