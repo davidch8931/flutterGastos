@@ -35,7 +35,7 @@ class DatabaseConnection {
         await db.execute('''
           CREATE TABLE configuracion (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
-            monto DECIMAL NOT NULL DEFAULT 0.0
+            monto TEXT NOT NULL DEFAULT 0.0
           )
         ''');
 
@@ -47,7 +47,7 @@ class DatabaseConnection {
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             tipo TEXT NOT NULL,
             fecha TEXT NOT NULL,
-            monto DECIMAL NOT NULL,
+            monto TEXT NOT NULL,
             descripcion TEXT
           )
         ''');

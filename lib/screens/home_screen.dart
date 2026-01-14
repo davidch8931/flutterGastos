@@ -36,7 +36,7 @@ class HomeScreen extends StatelessWidget {
                 ),
                 child: TextButton(
                   onPressed: () {
-                    Navigator.pushNamed(context, '/');
+                    Navigator.pushNamed(context, '/transacciones/lista');
                   },
                   child: Text(
                     'Transacciones',
